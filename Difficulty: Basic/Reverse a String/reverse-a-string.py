@@ -6,24 +6,29 @@ class Solution:
         l.reverse()  # reverse function
         return "".join(l)  # joins the list into a string without spaces
 
-         
-       # k = s[ : :-1]   #slicing
-        #return k
-    
+ # Time complexiety O(n) 
+ # Space Complexiety O(n) two extra copies: the list and the final reversed string
+_________________________________________________________________________________________
+# if we want Space Complexiety O(1). no extra space used except a few pointers
+class Solution:
+    def reverseString(self, s: list[str]) -> None:
+        left, right = 0, len(s) - 1
+        while left < right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
+_________________________________________________________________________________
+  #slicing
+class Solution:
+    def reverseString(self, s: list[str]) -> None:
+        k = s[ : :-1] 
+        return k
 
 
-#{ 
- # Driver Code Starts
-#Initial Template for Python 3
+Time Complexity: O(n)
+s[::-1] traverses the entire list once to construct the reversed version.
+ Space Complexity: O(n)
+s[::-1] creates a new reversed list, so it needs extra space proportional to the input size.
 
-if __name__ == "__main__":
-    t = int(input())
-    while (t > 0):
-        s = input()
-        ob = Solution()
-        print(ob.reverseString(s))
-        t = t - 1
 
-        print("~")
 
-# } Driver Code Ends
